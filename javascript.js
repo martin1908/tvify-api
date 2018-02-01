@@ -71,7 +71,7 @@ $(function() {
             }
         })
     })
-    var template = '<a href="#" id="translate" data-text="English,Francés,Español" data-file="es,en,fr" data-index="1">Español</a>'+
+    var template = 
                     '<article class="tv-show">' +
                         '<div class="left image-container">'+
                             '<img src=":img:" alt="img alt"/>' +
