@@ -71,20 +71,21 @@ $(function() {
             }
         })
     })
-    var template = '<article class="tv-show">' +
+    var template = '<a href="#" id="translate" data-text="English,Francés,Español" data-file="es,en,fr" data-index="1">Español</a>'+
+                    '<article class="tv-show">' +
                         '<div class="left image-container">'+
                             '<img src=":img:" alt="img alt"/>' +
                     '</div>' +
                     '<div class="rigth info">'+
-                        '<h1>:name:</h1>'+
-                        '<p>:summary:</p>'+
+                        '<h1 translate="no" lang="es">:name:</h1>'+
+                        '<p translate="no" lang="es">:summary:</p>'+
                         '<button class="gusta" alt="Me gusta" title="Me gusta">👍</button>'+
                         '<button class="sad" alt="No me gusta" title="No me gusta">😭</button>'+
                         '<button class="like" alt="Me encanta" title="Me encanta">💖</button>'+
                     '</div>' +
                     '</article>';
     if (!localStorage.shows){
-        $.ajax( 'http://api.tvmaze.com/shows')
+        $.ajax( 'http://api.tvmaze.com/shows?page=1')
         .then(function  (shows){ //promesas
               //remover el loader a la hora que carga la pagina
             $tvShowsContainer.find('.loader').remove();
@@ -95,3 +96,73 @@ $(function() {
         renderShows(JSON.parse(localStorage.shows));
     }         
 })
+
+
+//// traslate
+
+$(document).ready(function(){
+  var selector = '#translate';
+  $(selector).on('click', function(e){
+    e.preventDefault();
+    startLang( $(this) );
+  });
+  var startLang = function(el){
+    var el = $(el);
+    var text = el.attr('data-text');
+    var file = el.attr('data-file');
+    file = file.split(',');
+    text = text.split(',');
+    var index = el.attr('data-index');
+    if(index >= file.length){
+      index = 0;
+    }
+    changeName(el, text[index]);
+    changeIndex(el, index);
+    loadLang(file[index]);
+    $('html').attr('lang', file[index]);
+  };
+ 
+  var changeName = function(el, name){
+    $(el).html( name );
+  };
+ 
+  var changeIndex = function(el, index){
+    $(el).attr('data-index', ++index);
+  };
+ 
+  var loadLang = function(lang){
+    var processLang = function(data){
+      var arr = data.split('\n');
+      for(var i in arr){
+        if( lineValid(arr[i]) ){
+          var obj = arr[i].split('=>');
+          assignText(obj[0], obj[1]);
+        }
+      }
+    };
+    var assignText = function(key, value){
+      $('[data-lang="'+key+'"]').each(function(){
+        var attr = $(this).attr('data-destine');
+        if(typeof attr !== 'undefined'){
+          $(this).attr(attr, value);
+        }else{
+          $(this).html(value);
+        }
+      });
+    };
+    var lineValid = function(line){
+      return (line.trim().length > 0);
+    };
+    $('.loading-lang').addClass('show');
+    $.ajax({
+      url: 'lang/'+lang+'.txt',
+      error:function(){
+        alert('No se cargó traducción');
+      },
+      success: function(data){
+        $('.loading-lang').removeClass('show');
+        processLang(data);
+      }
+    });
+  };  
+});
