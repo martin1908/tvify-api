@@ -1,7 +1,8 @@
 body{
-    background-image: url('https://images2.alphacoders.com/210/thumb-1920-210150.jpg');
+    background-image: url('');
     background-repeat: no-repeat;
     font-family: 'Roboto', sans-serif;
+    background: #9E9E9E !important;
 }
 #app-container{
     width: 100%;
@@ -9,7 +10,7 @@ body{
 
 }
 #app-header{
-    width: 98.5%;
+    width: 100%;
     height: 10vh;
     position: fixed;
     background-color: #2ecc73;
@@ -200,13 +201,13 @@ body{
 /*1028*/
 @media screen and (max-width: 1024px) {
     .tv-shows{
-    margin-left: -42px;
+    margin-left: 0px;
   }
 }
 /*768*/
 @media screen and (max-width: 768px) {
   .tv-shows{
-    margin-left: -47px;
+    margin-left: 0px;
   }
 }
 /*414px*/
@@ -217,25 +218,24 @@ body{
     margin-left: 120px;
   }
   #app-header {
-    width: 95.5%;
+    width: 100%;
     height: 10vh;
     position: fixed;
     background-color: #2ecc73;
     text-align: center;
     z-index: 10;
 }
-#app-body .search-form {
-    width: 100%;
+  #app-body .search-form {
+    width: 100%; 
     margin: 0 auto;
     text-align: center;
     margin-bottom: 20px;
     font-size: 22px;
-    margin-left: -3px;
+    margin-left: 0px;
 }
 .tv-shows{
     margin: 0;
     padding: 0;
-    margin-left: -37px;
 }
 .tv-show {
     width: 100%;
@@ -246,9 +246,16 @@ body{
     position: relative;
     border: 5px solid black;
 }
+.tv-show .image-container {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    padding-top: 55px;
+}
 .tv-show .info {
-    width: 75%;
+    width: 100%;
     padding-top: 25px;
+    text-align: justify;
 }
 .tv-show .info h1{
     text-align: center;
@@ -259,7 +266,7 @@ body{
     outline: 0;
     position: absolute;
     top: 10px;
-    right: 223px;
+    right: 262px;
     font-size: 22px;
     cursor: pointer;
     transition: all 1s ease;
@@ -270,18 +277,7 @@ body{
     outline: 0;
     position: absolute;
     top: 10px;
-    right: 123px;
-    font-size: 22px;
-    cursor: pointer;
-    transition: all 1s ease;
-}
-.tv-show button.like {
-    background: transparent;
-    border: 0;
-    outline: 0;
-    position: absolute;
-    top: 10px;
-    right: 21px;
+    right: 140px;
     font-size: 22px;
     cursor: pointer;
     transition: all 1s ease;
@@ -302,25 +298,24 @@ body{
     margin-left: 120px;
   }
   #app-header {
-    width: 95.5%;
+    width: 100%;
     height: 10vh;
     position: fixed;
     background-color: #2ecc73;
     text-align: center;
     z-index: 10;
 }
-#app-body .search-form {
-    width: 100%;
+  #app-body .search-form {
+    /* width: 50%; */
     margin: 0 auto;
     text-align: center;
     margin-bottom: 20px;
     font-size: 22px;
-    margin-left: -5px;
+    margin-left: 0px;
 }
 .tv-shows{
     margin: 0;
     padding: 0;
-    margin-left: -37px;
 }
 .tv-show {
     width: 100%;
@@ -331,9 +326,16 @@ body{
     position: relative;
     border: 5px solid black;
 }
+.tv-show .image-container {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    padding-top: 55px;
+}
 .tv-show .info {
-    width: 75%;
+    width: 100%;
     padding-top: 25px;
+    text-align: justify;
 }
 .tv-show .info h1{
     text-align: center;
@@ -344,7 +346,7 @@ body{
     outline: 0;
     position: absolute;
     top: 10px;
-    right: 232px;
+    right: 262px;
     font-size: 22px;
     cursor: pointer;
     transition: all 1s ease;
@@ -355,18 +357,7 @@ body{
     outline: 0;
     position: absolute;
     top: 10px;
-    right: 128px;
-    font-size: 22px;
-    cursor: pointer;
-    transition: all 1s ease;
-}
-.tv-show button.like {
-    background: transparent;
-    border: 0;
-    outline: 0;
-    position: absolute;
-    top: 10px;
-    right: 21px;
+    right: 140px;
     font-size: 22px;
     cursor: pointer;
     transition: all 1s ease;
@@ -384,28 +375,27 @@ body{
   .loader{
     text-align: center;
     margin: auto;
-    margin-left: 120px;
+    margin-left: 100px;
   }
   #app-header {
-    width: 95.5%;
+    width: 100%;
     height: 10vh;
     position: fixed;
     background-color: #2ecc73;
     text-align: center;
     z-index: 10;
 }
-#app-body .search-form {
-    width: 100%;
+  #app-body .search-form {
+    /* width: 50%; */
     margin: 0 auto;
     text-align: center;
     margin-bottom: 20px;
     font-size: 22px;
-    margin-left: -20px;
+    margin-left: 0px;
 }
 .tv-shows{
     margin: 0;
     padding: 0;
-    margin-left: -37px;
 }
 .tv-show {
     width: 100%;
@@ -416,9 +406,16 @@ body{
     position: relative;
     border: 5px solid black;
 }
+.tv-show .image-container {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    padding-top: 55px;
+}
 .tv-show .info {
-    width: 75%;
+    width: 100%;
     padding-top: 25px;
+    text-align: justify;
 }
 .tv-show .info h1{
     text-align: center;
@@ -429,7 +426,7 @@ body{
     outline: 0;
     position: absolute;
     top: 10px;
-    right: 223px;
+    right: 230px;
     font-size: 22px;
     cursor: pointer;
     transition: all 1s ease;
@@ -440,18 +437,7 @@ body{
     outline: 0;
     position: absolute;
     top: 10px;
-    right: 123px;
-    font-size: 22px;
-    cursor: pointer;
-    transition: all 1s ease;
-}
-.tv-show button.like {
-    background: transparent;
-    border: 0;
-    outline: 0;
-    position: absolute;
-    top: 10px;
-    right: 21px;
+    right: 125px;
     font-size: 22px;
     cursor: pointer;
     transition: all 1s ease;
@@ -469,10 +455,10 @@ body{
   .loader{
     text-align: center;
     margin: auto;
-    margin-left: 120px;
+    margin-left: 90px;
   }
   #app-header {
-    width: 95.5%;
+    width: 100%;
     height: 10vh;
     position: fixed;
     background-color: #2ecc73;
@@ -485,12 +471,11 @@ body{
     text-align: center;
     margin-bottom: 20px;
     font-size: 22px;
-    margin-left: -26px;
+    margin-left: -8px;
 }
 .tv-shows{
     margin: 0;
     padding: 0;
-    margin-left: -37px;
 }
 .tv-show {
     width: 100%;
@@ -501,9 +486,16 @@ body{
     position: relative;
     border: 5px solid black;
 }
+.tv-show .image-container {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    padding-top: 55px;
+}
 .tv-show .info {
-    width: 75%;
+    width: 100%;
     padding-top: 25px;
+    text-align: justify;
 }
 .tv-show .info h1{
     text-align: center;

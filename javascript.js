@@ -35,7 +35,13 @@ $(function() {
 
     function renderShows(shows){
             $tvShowsContainer.find('.loader').remove(); //eliminar el spiner luego de haber cargado la pagina
+            //var i=0 ;
             shows.forEach(function(show){
+                //for(var j=0; j<5 ; j++) {
+                    //var show = shows[j]
+                    //console.log(show); 
+                //poner 5 elementos 
+               
                 var article = template
                 .replace(':name:', show.name)
                 .replace(':img:', show.image.medium)
@@ -47,6 +53,7 @@ $(function() {
                 $tvShowsContainer.append($article.fadeIn(3500)); //fadein efecto que aparesca lentamente 
 
             })
+            //)
         }
     $('#app-body')
     .find('form')
@@ -74,18 +81,20 @@ $(function() {
     var template = 
                     '<article class="tv-show">' +
                         '<div class="left image-container">'+
-                            '<img src=":img:" alt="img alt"/>' +
-                    '</div>' +
+                            '<img src=":img:" alt="img alt" />' +
+                        '</div>' +
                     '<div class="rigth info">'+
                         '<h1 translate="no" lang="es">:name:</h1>'+
                         '<p translate="no" lang="es">:summary:</p>'+
+                        '<div class="botones">'+
                         '<button class="gusta" alt="Me gusta" title="Me gusta">👍</button>'+
                         '<button class="sad" alt="No me gusta" title="No me gusta">😭</button>'+
                         '<button class="like" alt="Me encanta" title="Me encanta">💖</button>'+
+                        '</div>'+
                     '</div>' +
                     '</article>';
     if (!localStorage.shows){
-        $.ajax( 'http://api.tvmaze.com/shows?page=1')
+        $.ajax( 'http://api.tvmaze.com/shows')
         .then(function  (shows){ //promesas
               //remover el loader a la hora que carga la pagina
             $tvShowsContainer.find('.loader').remove();
@@ -166,3 +175,18 @@ $(document).ready(function(){
     });
   };  
 });
+
+
+//modal
+$(document).ready(function(){
+  $("#myModal").on("hidden.bs.modal",function(){
+    $("#iframeYoutube").attr("src","#");
+  })
+})
+
+function changeVideo(vId){
+  var iframe=document.getElementById("iframeYoutube");
+  iframe.src="https://www.youtube.com/embed/"+vId;
+
+  $("#myModal").modal("show");
+}
